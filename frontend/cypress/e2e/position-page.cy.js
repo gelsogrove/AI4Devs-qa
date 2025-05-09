@@ -10,32 +10,42 @@ describe('Position Page Tests', () => {
   });
   
   it('should display the position title correctly', () => {
+    // Variables instead of hard-coded selectors
+    const positionTitle = '[data-cy=position-title]';
+    
     // Verify the position title is displayed
-    cy.get('[data-cy=position-title]').should('be.visible');
+    cy.get(positionTitle).should('be.visible');
     
     // Verify it contains text (actual text will depend on your application)
-    cy.get('[data-cy=position-title]').should('not.be.empty');
+    cy.get(positionTitle).should('not.be.empty');
   });
   
   it('should display position cards correctly', () => {
+    // Variables instead of hard-coded selectors
+    const candidateCards = '[data-cy=candidate-card]';
+    const columnTitles = '[data-cy=column-title]';
+    
     // Verify that candidate cards are visible
-    cy.get('[data-cy=candidate-card]').should('be.visible');
+    cy.get(candidateCards).should('be.visible');
     
     // Verify that we have at least one card
-    cy.get('[data-cy=candidate-card]').should('have.length.greaterThan', 0);
+    cy.get(candidateCards).should('have.length.greaterThan', 0);
     
     // Verify that each card has a title
-    cy.get('[data-cy=column-title]').each(($title) => {
+    cy.get(columnTitles).each(($title) => {
       cy.wrap($title).should('not.be.empty');
     });
   });
   
   it('should navigate to position details when clicking on a position card', () => {
+    // Variables instead of hard-coded selectors
+    const stageColumns = '[data-cy=stage-column]';
+    
     // Verify that view process button exists and clicks
-    cy.get('[data-cy=stage-column]').first().click();
+    cy.get(stageColumns).first().click();
     
     // We don't need to check the actual navigation since it might take us outside the test scope
     // Just verify the button is clickable
-    cy.get('[data-cy=stage-column]').should('be.visible');
+    cy.get(stageColumns).should('be.visible');
   });
 }); 

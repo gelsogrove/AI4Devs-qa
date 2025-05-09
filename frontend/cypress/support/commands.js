@@ -5,9 +5,15 @@
 // Login command as suggested in the instructions
 Cypress.Commands.add('login', (email, password) => {
   cy.visit('/login');
-  cy.get('[data-cy=email]').type(email);
-  cy.get('[data-cy=password]').type(password);
-  cy.get('[data-cy=submit-button]').click();
+  
+  // Use variables for selectors
+  const emailField = '[data-cy=email]';
+  const passwordField = '[data-cy=password]';
+  const submitButton = '[data-cy=submit-button]';
+  
+  cy.get(emailField).type(email);
+  cy.get(passwordField).type(password);
+  cy.get(submitButton).click();
 });
 
 // Navigate to positions page
