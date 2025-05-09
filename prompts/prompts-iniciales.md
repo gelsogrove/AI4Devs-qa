@@ -23,7 +23,7 @@ You are a professional QA engineer with solid knowledge of the JavaScript stack.
 # Consider that 
 
 ## Best practise
-- Do not use the id or class to get elements use `data-cy´
+- Do not use the id or class to get elements use `data-cy´ into the selectors
 - Use Page Object Model (POM) design pattern
 - Follow [Cypress best practices](https://docs.cypress.io/app/core-concepts/best-practices)
 - Add `[data-cy=submit-button]` in the frontend where missing
